@@ -15,7 +15,7 @@ class PigLatinizer
     elsif consonants.include?(str[0])
     str[1..-1] + str[0] + 'way'
     else
-    str # return unchanged
+    str.join # return unchanged
     end
   end
 
