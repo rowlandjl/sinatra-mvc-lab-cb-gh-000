@@ -18,7 +18,7 @@ class PigLatinizer
         first = string.shift
         string = "#{string}#{first}ay"
       elsif string.first.downcase.match(/[aeoui]/)
-        "#{string}way"
+        "#{string}way".join
       else
         string.join
       end
