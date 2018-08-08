@@ -21,6 +21,7 @@ class PigLatinizer
       ends
     end
     words * ' '
+  end 
   end
 
   def to_pig_latin(sentence)
