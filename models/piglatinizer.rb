@@ -30,6 +30,5 @@ class PigLatinizer
         self.piglatinize(value)
       end.join(' ')
     end
-  end
 
 end
