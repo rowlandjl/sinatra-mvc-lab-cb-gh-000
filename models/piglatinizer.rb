@@ -3,6 +3,7 @@ require 'pry'
 class PigLatinizer
 
   def piglatinize(str)
+    str = str.split(' ')
     alpha = ('a'..'z').to_a
     vowels = %w[a e i o u]
     consonants = alpha - vowels
