@@ -3,29 +3,24 @@ require 'pry'
 class PigLatinizer
 
   def piglatinize(string)
-    string = string.split('')
-    if string.first.downcase.match(/[bcdfghjklmnpqrstvwxyz]/) && string[1].downcase.match(/[bcdfghjklmnpqrstvwxyz]/) && string[2].downcase.match(/[bcdfghjklmnpqrstvwxyz]/)
-      first = string.shift
-      second = string.shift
-      third = string.shift
-      "#{string.join}#{first}#{second}#{third}ay"
-      # binding.pry
-    elsif string.first.downcase.match(/[bcdfghjklmnpqrstvwxyz]/) && string[1].downcase.match(/[bcdfghjklmnpqrstvwxyz]/)
-      first = string.shift
-      second = string.shift
-      "#{string.join}#{first}#{second}ay"
-      # binding.pry
-    elsif string.first.downcase.match(/[bcdfghjklmnpqrstvwxyz]/)
-      first = string.shift
-      "#{string.join}#{first}ay"
-      # binding.pry
-    elsif string.first.downcase.match(/[aeoui]/)
-      "#{string.join}way"
-      # binding.pry
-    else
-      string.join
-      # binding.pry
+    
+    vocals = ['a','e','i','o','u']
+    for i in 0..words.length-1
+      first_letter = words[i][0]
+      words[i] = if vocals.include?(first_letter.downcase)
+        words[i] + "way"
+      else
+        j = 0
+        until vocals.include?(words[i][j].downcase) do
+          j+=1
+          if j==words[i].length
+            break
+          end
+        end
+        words[i][j..-1] + words[i][0..j-1] + "ay"
+      end
     end
+    words * ' '
   end
 
   def to_pig_latin(sentence)
