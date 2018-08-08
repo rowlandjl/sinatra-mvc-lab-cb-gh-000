@@ -18,15 +18,13 @@ class PigLatinizer
           end
         end
         words[i][j..-1] + words[i][0..j-1] + "ay"
-      end
+      ends
     end
     words * ' '
   end
 
   def to_pig_latin(sentence)
-    sentence.split(' ').map do |value|
-      self.piglatinize(value)
-    end.join(' ')
+    piglatinize(sentences)
   end
 
 end
