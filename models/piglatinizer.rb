@@ -2,7 +2,7 @@ require 'pry'
 
 class PigLatinizer
 
-  def piglatinize(string)
+  def piglatinize(text)
 
     vocals = ['a','e','i','o','u']
     for i in 0..words.length-1
@@ -21,7 +21,7 @@ class PigLatinizer
       ends
     end
     words * ' '
-  end 
+  end
   end
 
   def to_pig_latin(sentence)
