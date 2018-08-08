@@ -2,8 +2,6 @@ require 'pry'
 
 class PigLatinizer
 
-  class PigLatinizer
-
     def piglatinize(string)
       string = string.split('')
       if string.first.downcase.match(/[bcdfghjklmnpqrstvwxyz]/) && string[1].downcase.match(/[bcdfghjklmnpqrstvwxyz]/) && string[2].downcase.match(/[bcdfghjklmnpqrstvwxyz]/)
