@@ -9,6 +9,7 @@ class PigLatinizer
         second = string.shift
         third = string.shift
         "#{string}#{first}#{second}#{third}ay"
+        string.join
       elsif string.first.downcase.match(/[bcdfghjklmnpqrstvwxyz]/) && string[1].downcase.match(/[bcdfghjklmnpqrstvwxyz]/)
         first = string.shift
         second = string.shift
