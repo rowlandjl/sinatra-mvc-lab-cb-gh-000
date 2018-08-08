@@ -18,6 +18,7 @@ class PigLatinizer
         "#{string.join}#{first}ay"
       elsif string.first.downcase.match(/[aeoui]/)
         "#{string.join}way"
+        string 
       else
         string.join
       end
