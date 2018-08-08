@@ -22,6 +22,7 @@ class PigLatinizer
       else
         string.join
       end
+      str.join 
     end
 
     def to_pig_latin(sentence)
