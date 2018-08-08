@@ -16,7 +16,6 @@ class PigLatinizer
     else
     str # return unchanged
     end
-    end
   end
 
   def to_pig_latin(sentence)
