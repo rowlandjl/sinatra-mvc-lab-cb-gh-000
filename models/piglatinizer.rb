@@ -11,7 +11,7 @@ class PigLatinizer
             str = str[1..-1]
         end
         str  = ' ' + str + 'ay'
-    end.strip
+    # end.strip
   end
 
   def to_pig_latin(sentence)
