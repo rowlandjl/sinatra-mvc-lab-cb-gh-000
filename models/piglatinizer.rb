@@ -3,7 +3,7 @@ require 'pry'
 class PigLatinizer
 
   def piglatinize(string)
-    
+
     vocals = ['a','e','i','o','u']
     for i in 0..words.length-1
       first_letter = words[i][0]
