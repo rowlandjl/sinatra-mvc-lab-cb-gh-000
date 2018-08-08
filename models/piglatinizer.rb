@@ -2,22 +2,34 @@ require 'pry'
 
 class PigLatinizer
 
-  def piglatinize(str)
-    vowels = %w{a e i o u}
-    sent.gsub(/(\A|\s)\w+/) do |str|
-            str.strip!
-        while not vowels.include? str[0] or (str[0] == 'u' and str[-1] == 'q')
-            str += str[0]
-            str = str[1..-1]
-        end
-        str  = ' ' + str + 'ay'
-    end.strip
-  end
+  class PigLatinizer
 
-  def to_pig_latin(sentence)
-    sentence.gsub('.','').split(' ').collect do |word|
-      translate word
-    end.compact.join(' ')
+    def piglatinize(string)
+      string = string.split('')
+      if string.first.downcase.match(/[bcdfghjklmnpqrstvwxyz]/) && string[1].downcase.match(/[bcdfghjklmnpqrstvwxyz]/) && string[2].downcase.match(/[bcdfghjklmnpqrstvwxyz]/)
+        first = string.shift
+        second = string.shift
+        third = string.shift
+        "#{string.join}#{first}#{second}#{third}ay"
+      elsif string.first.downcase.match(/[bcdfghjklmnpqrstvwxyz]/) && string[1].downcase.match(/[bcdfghjklmnpqrstvwxyz]/)
+        first = string.shift
+        second = string.shift
+        "#{string.join}#{first}#{second}ay"
+      elsif string.first.downcase.match(/[bcdfghjklmnpqrstvwxyz]/)
+        first = string.shift
+        "#{string.join}#{first}ay"
+      elsif string.first.downcase.match(/[aeoui]/)
+        "#{string.join}way"
+      else
+        string.join
+      end
+    end
+
+    def to_pig_latin(sentence)
+      sentence.split(' ').map do |value|
+        self.piglatinize(value)
+      end.join(' ')
+    end
   end
 
 end
